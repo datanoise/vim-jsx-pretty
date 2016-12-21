@@ -98,13 +98,15 @@ syntax region jsxString contained start=+'+ end=+'+ contains=jsxEntity,@Spell di
 
 " <tag key={this.props.key}>
 "          s~~~~~~~~~~~~~~e
+"    \ contains=jsTemplateString,jsObject,jsArrowFuncArgs,jsFuncBlock,
+"              \jsFlowDefinition,jsFuncBlock,jsParen,jsxRegion,jsExpression
 syntax region jsxEscapeJs
     \ contained
-    \ contains=jsTemplateString,jsObject,jsArrowFuncArgs,jsFuncBlock,
-              \jsFlowDefinition,jsFuncBlock,jsParen,jsxRegion
+    \ contains=@jsExpression,jsxEscapeJs
     \ matchgroup=jsxCloseTag end=+>+
     \ start=+{+
     \ end=+}+
+    \ extend
 
 syntax match jsxIfOperator +?+
 syntax match jsxElseOperator +:+
