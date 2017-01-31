@@ -24,7 +24,7 @@ endif
 "  <tag></tag>
 " s~~~~~~~~~~~e
 syntax region jsxRegion
-      \ start=+<\z([^ /!?<>"'=:]\+\)+
+      \ start=+<\z([^ /!?%<>"'=:]\+\)+
       \ skip=+<!--\_.\{-}-->+
       \ end=+</\z1\_\s\{-}[^(=>)]>+
       \ end=+>\n\?\s*)\@=+
@@ -102,7 +102,7 @@ syntax region jsxString contained start=+'+ end=+'+ contains=jsxEntity,@Spell di
 "              \jsFlowDefinition,jsFuncBlock,jsParen,jsxRegion,jsExpression
 syntax region jsxEscapeJs
     \ contained
-    \ contains=@jsExpression,jsxEscapeJs
+    \ contains=@jsExpression
     \ matchgroup=jsxCloseTag end=+>+
     \ start=+{+
     \ end=+}+
